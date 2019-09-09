@@ -104,7 +104,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".box {\\n  color: green;\\n  background-color: burlywood;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/assert/less/index.less?./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js??ref--4-2");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".box {\\n  color: green;\\n  background-color: burlywood;\\n  font-size: 20px;\\n}\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/assert/less/index.less?./node_modules/css-loader/dist/cjs.js!./node_modules/less-loader/dist/cjs.js??ref--4-2");
 
 /***/ }),
 
