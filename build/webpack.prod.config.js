@@ -1,5 +1,7 @@
 const commonConfig = require('./webpack.common.config');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
 
@@ -43,7 +45,13 @@ let prodConfig = {
             filename: '[name].[hash].css', // 设置最终输出的文件名
             chunkFilename: '[id].[hash].css'
         })
-    ]
+    ],
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin(),
+            new OptimizeCSSAssetsPlugin({}) // 压缩css
+        ]
+    }
 };
 
 module.exports = merge(commonConfig, prodConfig);
