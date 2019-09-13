@@ -1,4 +1,3 @@
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
@@ -50,7 +49,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: 'main.html', // 默认值： 'index.html'
             template: path.resolve(__dirname, '../src/index.html'),
