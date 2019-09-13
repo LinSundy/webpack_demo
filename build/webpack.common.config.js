@@ -42,9 +42,18 @@ module.exports = {
             {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader'
-                }
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    },
+                    {
+                        loader: "eslint-loader",
+                        options: {
+                            // eslint options (if necessary)
+                            fix: true
+                        }
+                    }
+                ]
             }
         ]
     },
