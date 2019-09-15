@@ -1,22 +1,27 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const path = require("path");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
-    entry: './src/index.js',
+    entry: "./src/index.js",
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                loader: "vue-loader"
+            },
             {
                 test: /\.(png|svg|jpg|gif|jpeg|ico|woff|woff2|eot|ttf|otf)$/,
                 use: [
                     {
-                        loader: 'url-loader', // 根据图片大小，把图片优化成base64
+                        loader: "url-loader", // 根据图片大小，把图片优化成base64
                         options: {
                             limit: 10000
                         }
                     },
                     {
-                        loader: 'image-webpack-loader', // 先进行图片优化
+                        loader: "image-webpack-loader", // 先进行图片优化
                         options: {
                             mozjpeg: {
                                 progressive: true,
@@ -26,7 +31,7 @@ module.exports = {
                                 enabled: false
                             },
                             pngquant: {
-                                quality: '65-90',
+                                quality: "65-90",
                                 speed: 4
                             },
                             gifsicle: {
@@ -44,7 +49,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: [
                     {
-                        loader: 'babel-loader'
+                        loader: "babel-loader"
                     },
                     {
                         loader: "eslint-loader",
@@ -57,11 +62,18 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        extensions: [".js", ".json", ".css"], // 可忽略此后缀的文件后缀
+        alias: {
+            "@": path.resolve(__dirname, "../src")
+        }
+    },
     plugins: [
+        new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            filename: 'main.html', // 默认值： 'index.html'
-            template: path.resolve(__dirname, '../src/index.html'),
-            title: 'AICODER 全栈线下实习', // 默认值：Webpack App
+            filename: "main.html", // 默认值： 'index.html'
+            template: path.resolve(__dirname, "../src/index.html"),
+            title: "AICODER 全栈线下实习", // 默认值：Webpack App
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -69,7 +81,7 @@ module.exports = {
             }
         }),
         new webpack.ProvidePlugin({
-            _: 'lodash'
+            _: "lodash"
         })
     ]
 };
