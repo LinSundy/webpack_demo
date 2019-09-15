@@ -1,23 +1,24 @@
-const commonConfig = require('./webpack.common.config');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const merge = require('webpack-merge');
-const path = require('path');
-const webpack = require('webpack');
+const commonConfig = require("./webpack.common.config");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const merge = require("webpack-merge");
+const path = require("path");
+const webpack = require("webpack");
 
 let devConfig = {
-    mode: 'development',
+    mode: "development",
     output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, '../dist')
+        filename: "main.js",
+        path: path.resolve(__dirname, "../dist")
     },
     devServer: {
         contentBase: path.join(__dirname, "../dist"),
         hot: true,
         compress: true,
-        clientLogLevel: 'warning',
-        host: '0.0.0.0',
+        clientLogLevel: "warning",
+        host: "0.0.0.0",
         port: 8080,
         open: true,
+        openPage: "main.html",
         overlay: {  // 出现错误或者警告的时候，是否覆盖页面线上错误消息。
             warnings: true,
             errors: true
@@ -28,32 +29,32 @@ let devConfig = {
             aggregateTimeout: 300 // 默认值，当第一个文件更改，会在重新构建前增加延迟
         }
     },
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
     module: {
         rules: [
             {
                 test: /\.(le|c)ss$/,
                 exclude: /node_modules/,
                 use: [
-                    'style-loader',
+                    "style-loader",
                     {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                         options: {
                             sourceMap: true
                         }
                     },
                     {
-                        loader: 'postcss-loader',
+                        loader: "postcss-loader",
                         options: {
-                            ident: 'postcss',
+                            ident: "postcss",
                             sourceMap: true,
                             plugins: loader => [
-                                require('autoprefixer') // 添加前缀
+                                require("autoprefixer") // 添加前缀
                             ]
                         }
                     },
                     {
-                        loader: 'less-loader',
+                        loader: "less-loader",
                         options: {
                             noIeCompat: true,
                             sourceMap: true
@@ -64,11 +65,10 @@ let devConfig = {
         ]
     },
     plugins: [
-        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].css', // 设置最终输出的文件名
-            chunkFilename: '[id].css'
+            filename: "[name].css", // 设置最终输出的文件名
+            chunkFilename: "[id].css"
         })
     ]
 };

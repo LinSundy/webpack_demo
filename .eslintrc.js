@@ -15,6 +15,7 @@ module.exports = {
         "_": true
     },
     rules: {
+        "indent": ["error", 4],
         // allow async-await
         "generator-star-spacing": "off",
         // allow debugger during development
@@ -26,7 +27,7 @@ module.exports = {
         // 'quotes': ["error", "double", { "avoidEscape": true }]
         quotes: [
             "error",
-            "single",
+            "double",
             {
                 avoidEscape: true
             }
