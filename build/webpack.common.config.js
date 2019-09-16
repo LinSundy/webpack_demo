@@ -12,12 +12,19 @@ module.exports = {
                 loader: "vue-loader"
             },
             {
-                test: /\.(png|svg|jpg|gif|jpeg|ico|woff|woff2|eot|ttf|otf)$/,
+                test: /\.(png|svg|jpg|gif|jpeg)$/,
                 use: [
                     {
                         loader: "url-loader", // 根据图片大小，把图片优化成base64
                         options: {
-                            limit: 10000
+                            limit: 10000,
+                            name() {
+                                if (process.env.NODE_ENV === "development") {
+                                    return "[path][name].[ext]";
+                                }
+                                return "[hash].[ext]";
+                            },
+                            outputPath: "images"
                         }
                     },
                     {
@@ -43,6 +50,15 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        outputPath: "fonts"
+                    }
+                }
             },
             {
                 test: /\.m?js$/,

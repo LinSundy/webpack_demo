@@ -1,16 +1,17 @@
-const commonConfig = require('./webpack.common.config');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const merge = require('webpack-merge');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const path = require('path');
+const commonConfig = require("./webpack.common.config");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const merge = require("webpack-merge");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const path = require("path");
 
 let prodConfig = {
-    mode: 'production',
+    mode: "production",
     output: {
-        filename: '[name].[hash].js',
-        path: path.resolve(__dirname, '../dist')
+        filename: "[name].[hash].js",
+        path: path.resolve(__dirname, "../dist"),
+        publicPath: "./"
     },
     module: {
         rules: [
@@ -20,19 +21,19 @@ let prodConfig = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
-                        loader: 'css-loader'
+                        loader: "css-loader"
                     },
                     {
-                        loader: 'postcss-loader',
+                        loader: "postcss-loader",
                         options: {
-                            ident: 'postcss',
+                            ident: "postcss",
                             plugins: loader => [
-                                require('autoprefixer') // 添加前缀
+                                require("autoprefixer") // 添加前缀
                             ]
                         }
                     },
                     {
-                        loader: 'less-loader',
+                        loader: "less-loader",
                         options: {
                             noIeCompat: true
                         }
@@ -44,8 +45,8 @@ let prodConfig = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].[hash].css', // 设置最终输出的文件名
-            chunkFilename: '[id].[hash].css'
+            filename: "[name].[hash].css", // 设置最终输出的文件名
+            chunkFilename: "[id].[hash].css"
         })
     ],
     optimization: {
