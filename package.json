@@ -4,7 +4,7 @@
   "description": "'vue demo'",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --config build/webpack.dev.config.js",
+    "start": "webpack-dev-server --config build/webpack.dev.config.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack --config build/webpack.prod.config.js"
   },
