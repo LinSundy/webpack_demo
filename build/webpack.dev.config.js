@@ -16,7 +16,6 @@ let devConfig = {
         compress: true,
         clientLogLevel: "warning",
         host: "0.0.0.0",
-        port: 8080,
         open: true,
         openPage: "main.html",
         overlay: {  // 出现错误或者警告的时候，是否覆盖页面线上错误消息。
