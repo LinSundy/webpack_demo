@@ -1,5 +1,7 @@
 # webpack_demo
+
 基于webpack 4.x的配置
+
 - 支持css, less
 - 配置文件已拆分为开发与生产
 - 添加了eslint的检查
@@ -14,7 +16,13 @@
 - 生产环境中启用css以及js的压缩
 
 还需要做：
+
 - 多页面的配置
 - 引入css module
 - 当启用多页面时，公共模块的提取
-- 提取的图片以及css所在的目录
+
+## 字体
+
+> 使用的是icon的字体库，已经新建好的项目
+
+[字体库地址](https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.11&manage_type=myprojects&projectId=971327)

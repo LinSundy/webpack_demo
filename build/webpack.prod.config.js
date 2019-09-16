@@ -9,7 +9,7 @@ const path = require("path");
 let prodConfig = {
     mode: "production",
     output: {
-        filename: "[name].[hash].js",
+        filename: "js/[name].[hash].js",
         path: path.resolve(__dirname, "../dist"),
         publicPath: "./"
     },
@@ -19,7 +19,9 @@ let prodConfig = {
                 test: /\.(le|c)ss$/,
                 exclude: /node_modules/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
                     {
                         loader: "css-loader"
                     },
@@ -45,7 +47,7 @@ let prodConfig = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: "[name].[hash].css", // 设置最终输出的文件名
+            filename: "css/[name].[hash].css", // 设置最终输出的文件名
             chunkFilename: "[id].[hash].css"
         })
     ],
