@@ -45,7 +45,10 @@ let prodConfig = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({
+            verbose: true,
+            cleanOnceBeforeBuildPatterns: ['css\/*', 'fonts\/*', 'images\/*', '*.html', 'js\/*']
+        }),
         new MiniCssExtractPlugin({
             filename: "css/[name].[hash].css", // 设置最终输出的文件名
             chunkFilename: "[id].[hash].css"
