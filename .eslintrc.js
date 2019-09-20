@@ -15,6 +15,7 @@ module.exports = {
         "_": true
     },
     rules: {
+        "object-curly-spacing": ["error", "never"],
         "indent": ["error", 4],
         // allow async-await
         "generator-star-spacing": "off",

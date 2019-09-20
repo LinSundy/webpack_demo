@@ -16,6 +16,7 @@
 - 生产环境中启用css以及js的压缩
 - 增加多线程打包
 - 增加dll预打包
+- 引入了css module
 
 还需要做：
 
@@ -32,3 +33,6 @@
 ## 测试v-charts雷达图
 
 - 测试完成删除 v-charts, echarts 两个包
+
+## 优化
+想法: 生产环境-使用bootcdn 与 dll 配合使用

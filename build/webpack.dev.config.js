@@ -36,11 +36,16 @@ let devConfig = {
                 test: /\.(le|c)ss$/,
                 exclude: /node_modules/,
                 use: [
-                    "style-loader",
+                    {
+                        loader: "style-loader"
+                    },
                     {
                         loader: "css-loader",
                         options: {
-                            sourceMap: true
+                            sourceMap: true,
+                            modules: {
+                                localIdentName: "[name]__[local]-[hash:base64:5]"
+                            }
                         }
                     },
                     {

@@ -8,6 +8,10 @@ const path = require("path");
 
 let prodConfig = {
     mode: "production",
+    externals: {
+        // 'vue': 'Vue' 一定要注意value暴露的是什么才能正确引用到
+        // "element-ui": "ELEMENT"
+    },
     output: {
         filename: "js/[name].[hash].js",
         path: path.resolve(__dirname, "../dist"),
@@ -23,7 +27,12 @@ let prodConfig = {
                         loader: MiniCssExtractPlugin.loader,
                     },
                     {
-                        loader: "css-loader"
+                        loader: "css-loader",
+                        options: {
+                            modules: {
+                                localIdentName: "[name]__[local]-[hash:base64:5]"
+                            }
+                        }
                     },
                     {
                         loader: "postcss-loader",
@@ -47,7 +56,7 @@ let prodConfig = {
     plugins: [
         new CleanWebpackPlugin({
             verbose: true,
-            cleanOnceBeforeBuildPatterns: ['css\/*', 'fonts\/*', 'images\/*', '*.html', 'js\/*']
+            cleanOnceBeforeBuildPatterns: ["css\/*", "fonts\/*", "images\/*", "*.html", "js\/*"]
         }),
         new MiniCssExtractPlugin({
             filename: "css/[name].[hash].css", // 设置最终输出的文件名

@@ -7,13 +7,17 @@
                 :legend-visible="false"
                 :data="chartData"
         ></ve-radar>
-        <span>大家好,还少一个配置文件1</span>
+
         <i class="arrow"></i>
+        <div :class="styles.content">
+            <span>大家好,还少一个配置文件1</span>
+        </div>
     </div>
 </template>
 
 <script>
     import VeRadar from "v-charts/lib/radar.common";
+    import styles from "@/assert/less/index.module.less";
 
     export default {
         name: "App",
@@ -22,6 +26,7 @@
         },
         data() {
             return {
+                styles,
                 settings: {
                     lineStyle: {
                         color: "#63D3FF",
@@ -82,6 +87,3 @@
         }
     };
 </script>
-
-<style scoped>
-</style>
