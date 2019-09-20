@@ -1,10 +1,8 @@
 <template>
     <div>
         <ve-radar
-                ref="radar"
                 :settings="settings"
                 :extend="{radar: settings.radar}"
-                :log="true"
                 :tooltip-visible="false"
                 :legend-visible="false"
                 :data="chartData"
