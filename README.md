@@ -28,3 +28,7 @@
 > 使用的是icon的字体库，已经新建好的项目
 
 [字体库地址](https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.11&manage_type=myprojects&projectId=971327)
+
+## 测试v-charts雷达图
+
+- 测试完成删除 v-charts, echarts 两个包
