@@ -21,7 +21,7 @@ let prodConfig = {
         rules: [
             {
                 test: /\.(le|c)ss$/,
-                exclude: /node_modules/,
+                // exclude: /node_modules/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -59,8 +59,8 @@ let prodConfig = {
             cleanOnceBeforeBuildPatterns: ["css\/*", "fonts\/*", "images\/*", "*.html", "js\/*"]
         }),
         new MiniCssExtractPlugin({
-            filename: "css/[name].[hash].css", // 设置最终输出的文件名
-            chunkFilename: "[id].[hash].css"
+            filename: "css/[name].[contenthash].css", // 设置最终输出的文件名
+            chunkFilename: "[id].[contenthash].css"
         })
     ],
     optimization: {

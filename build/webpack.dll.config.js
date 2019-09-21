@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
-    entry: ["vue"],
+    entry: ["vue", "v-charts/lib/radar.common"],
     mode: "production",
     output: {
         filename: "_dll_[name].js",
@@ -21,5 +21,8 @@ module.exports = {
         minimizer: [
             new UglifyJsPlugin()
         ]
+        // splitChunks: {
+        //     chunks: "all",
+        // }
     }
 };
