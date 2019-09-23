@@ -10,7 +10,7 @@
 
         <i class="arrow"></i>
         <div :class="styles.content">
-            <span>大家好,还少一个配置文件1</span>
+            <span>大家好,还少一个配置文件2</span>
         </div>
     </div>
 </template>
