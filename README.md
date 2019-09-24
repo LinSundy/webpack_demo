@@ -36,3 +36,18 @@
 
 ## 优化
 想法: 生产环境-使用bootcdn 与 dll 配合使用
+
+## css/less 说明
+- 只对less使用了css module处理，并且增加了hash
+- css未经任何处理，两者可以根据场景选择合适的加载方式
+
+## Element
+***1. 首先element 加载实现按需加载***
+- element-theme
+- element-theme-chalk
+element主题生成工具 如果不需要自定义主题的话，可以删除不安装
+
+> 此安装包可以只在开发环境中使用，最终编译生成对应的css文件
+执行命令在 node_module/.bin/et
+初始化变量(scss类型) `node_module/.bin/et -i [文件名.scss]` 
+编译时 要指定自定义文件名 需要命令行加 -c

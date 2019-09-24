@@ -20,8 +20,8 @@ let prodConfig = {
     module: {
         rules: [
             {
-                test: /\.(le|c)ss$/,
-                // exclude: /node_modules/,
+                test: /\.less$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -47,6 +47,20 @@ let prodConfig = {
                         loader: "less-loader",
                         options: {
                             noIeCompat: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true
                         }
                     }
                 ]

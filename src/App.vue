@@ -12,6 +12,7 @@
         <div :class="styles.content">
             <span>大家好,还少一个配置文件2</span>
         </div>
+        <el-button type="primary">demo</el-button>
     </div>
 </template>
 

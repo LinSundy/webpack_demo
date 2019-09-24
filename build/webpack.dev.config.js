@@ -16,7 +16,7 @@ let devConfig = {
         compress: true,
         clientLogLevel: "warning",
         host: "0.0.0.0",
-        open: true,
+        open: false,
         openPage: "main.html",
         progress: true,
         overlay: {  // 出现错误或者警告的时候，是否覆盖页面线上错误消息。
@@ -33,8 +33,8 @@ let devConfig = {
     module: {
         rules: [
             {
-                test: /\.(le|c)ss$/,
-                exclude: /node_modules/,
+                test: /\.less$/,
+                exclude: path.resolve(__dirname, "../node_module"),
                 use: [
                     {
                         loader: "style-loader"
@@ -62,6 +62,20 @@ let devConfig = {
                         loader: "less-loader",
                         options: {
                             noIeCompat: true,
+                            sourceMap: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
                             sourceMap: true
                         }
                     }
