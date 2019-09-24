@@ -69,6 +69,7 @@ let devConfig = {
             },
             {
                 test: /\.css$/,
+                include: [path.resolve(__dirname, "../src"), path.resolve(__dirname, "../theme")],
                 use: [
                     {
                         loader: "style-loader"
