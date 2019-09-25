@@ -48,6 +48,12 @@
 element主题生成工具 如果不需要自定义主题的话，可以删除不安装
 
 > 此安装包可以只在开发环境中使用，最终编译生成对应的css文件
-执行命令在 node_module/.bin/et
-初始化变量(scss类型) `node_module/.bin/et -i [文件名.scss]` 
-编译时 要指定自定义文件名 需要命令行加 -c
+- 执行命令在 node_module/.bin/et
+- 初始化变量(scss类型) `node_module/.bin/et -i [文件名.scss]` 
+- 编译时，要指定自定义文件名 需要命令行加 -c
+
+## src文件夹及文件说明
+- pages 为多页面入口文件夹
+- components 不同模块中公共的组件
+- assert 所有模块存放的静态资源
+- index.html  template的基础模板

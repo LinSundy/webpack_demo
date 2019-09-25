@@ -5,7 +5,10 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const Happypack = require("happypack");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        "page1": "./src/pages/page1/index.js",
+        "page2": "./src/pages/page2/index.js",
+    },
     module: {
         noParse: /lodash/,
         rules: [
@@ -97,9 +100,21 @@ module.exports = {
         }),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            filename: "main.html", // 默认值： 'index.html'
+            filename: "html/page1.html", // 默认值： 'index.html'
             template: path.resolve(__dirname, "../src/index.html"),
             title: "Webpack", // 默认值：Webpack App
+            chunks: ["manifest", "page1"],
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeAttributeQuotes: true // 移除属性的引号
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: "html/page2.html", // 默认值： 'index.html'
+            template: path.resolve(__dirname, "../src/index.html"),
+            title: "Webpack", // 默认值：Webpack App
+            chunks: ["manifest", "page2"],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -112,18 +127,24 @@ module.exports = {
     ],
     optimization: {
         splitChunks: {
-            chunks: "all",
             maxInitialRequests: Infinity,
             minSize: 0,
             cacheGroups: {
                 vendor: {
                     test: /[\\/]node_modules[\\/]/,
-                    name(module) {
-                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-                        return `npm.${packageName.replace("@", "")}`;
-                    },
+                    name: "vendor",
+                    priority: -10
+                },
+                custom: {
+                    minSize: 0,
+                    priority: -20,
+                    name: "custom",
+                    reuseExistingChunk: true
                 }
             }
+        },
+        runtimeChunk: {
+            "name": "manifest"
         }
     }
 };

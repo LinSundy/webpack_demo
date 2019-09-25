@@ -1,5 +1,6 @@
 <template>
     <div>
+        <Hello></Hello>
         <ve-radar
                 :settings="settings"
                 :extend="{radar: settings.radar}"
@@ -21,11 +22,13 @@
     import VeRadar from "v-charts/lib/radar.common";
     import styles from "@/assert/less/index.module.less";
     import a from "@/assert/less/a.less";
+    import Hello from "@/components/hello.vue";
 
     export default {
-        name: "App",
+        name: "Page1",
         components: {
-            VeRadar
+            VeRadar,
+            Hello
         },
         data() {
             return {

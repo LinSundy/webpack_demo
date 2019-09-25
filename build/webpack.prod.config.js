@@ -15,7 +15,7 @@ let prodConfig = {
     output: {
         filename: "js/[name].[hash].js",
         path: path.resolve(__dirname, "../dist"),
-        publicPath: "./"
+        publicPath: "../"
     },
     module: {
         rules: [
@@ -81,8 +81,8 @@ let prodConfig = {
             cleanOnceBeforeBuildPatterns: ["css\/*", "fonts\/*", "images\/*", "*.html", "js\/*"]
         }),
         new MiniCssExtractPlugin({
-            filename: "css/[name].[contenthash].css", // 设置最终输出的文件名
-            chunkFilename: "[id].[contenthash].css"
+            filename: "[name].[contenthash].css", // 设置最终输出的文件名
+            chunkFilename: "css/[id].[contenthash].css"
         })
     ],
     optimization: {
