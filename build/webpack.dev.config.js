@@ -64,6 +64,14 @@ let devConfig = {
                             noIeCompat: true,
                             sourceMap: true
                         }
+                    },
+                    {
+                        loader: "style-resources-loader",
+                        options: {
+                            patterns: [
+                                path.resolve(__dirname, "../src/assert/less/base.less")
+                            ]
+                        }
                     }
                 ]
             },
@@ -81,7 +89,7 @@ let devConfig = {
                         }
                     }
                 ]
-            }
+            },
         ]
     },
     plugins: [

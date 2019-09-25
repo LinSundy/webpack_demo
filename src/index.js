@@ -1,5 +1,4 @@
-import "./assert/css/index.css";
-import "./assert/less/index.module.less";
+import "@/assert/less/reset.less";
 import Vue from "vue";
 import App from "@/App.vue";
 import {Button} from "element-ui";

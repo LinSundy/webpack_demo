@@ -48,6 +48,14 @@ let prodConfig = {
                         options: {
                             noIeCompat: true
                         }
+                    },
+                    {
+                        loader: "style-resources-loader",
+                        options: {
+                            patterns: [
+                                path.resolve(__dirname, "../src/assert/less/base.less")
+                            ]
+                        }
                     }
                 ]
             },

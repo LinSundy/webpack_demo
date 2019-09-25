@@ -7,11 +7,12 @@
                 :legend-visible="false"
                 :data="chartData"
         ></ve-radar>
-
+        <div class="box">11111</div>
         <i class="arrow"></i>
         <div :class="styles.content">
             <span>大家好,还少一个配置文件2</span>
         </div>
+        <div :class="a.demo">测试a.less</div>
         <el-button type="primary">demo</el-button>
     </div>
 </template>
@@ -19,6 +20,7 @@
 <script>
     import VeRadar from "v-charts/lib/radar.common";
     import styles from "@/assert/less/index.module.less";
+    import a from "@/assert/less/a.less";
 
     export default {
         name: "App",
@@ -28,6 +30,7 @@
         data() {
             return {
                 styles,
+                a,
                 settings: {
                     lineStyle: {
                         color: "#63D3FF",
