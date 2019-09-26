@@ -33,6 +33,20 @@ let devConfig = {
     module: {
         rules: [
             {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "sass-loader"
+                    }
+                ]
+            },
+            {
                 test: /\.less$/,
                 exclude: path.resolve(__dirname, "../node_module"),
                 use: [

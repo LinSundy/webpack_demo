@@ -118,28 +118,6 @@ module.exports = {
         }),
         new VueLoaderPlugin(),
         ...htmlWebpackPlugins,
-        // new HtmlWebpackPlugin({
-        //     filename: "html/page1.html", // 默认值： 'index.html'
-        //     template: path.resolve(__dirname, "../src/index.html"),
-        //     title: "Webpack", // 默认值：Webpack App
-        //     chunks: ["manifest", "page1"],
-        //     minify: {
-        //         collapseWhitespace: true,
-        //         removeComments: true,
-        //         removeAttributeQuotes: true // 移除属性的引号
-        //     }
-        // }),
-        // new HtmlWebpackPlugin({
-        //     filename: "html/page2.html", // 默认值： 'index.html'
-        //     template: path.resolve(__dirname, "../src/index.html"),
-        //     title: "Webpack", // 默认值：Webpack App
-        //     chunks: ["manifest", "page2"],
-        //     minify: {
-        //         collapseWhitespace: true,
-        //         removeComments: true,
-        //         removeAttributeQuotes: true // 移除属性的引号
-        //     }
-        // }),
         new webpack.ProvidePlugin({
             _: "lodash"
         }),

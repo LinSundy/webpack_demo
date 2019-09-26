@@ -20,6 +20,20 @@ let prodConfig = {
     module: {
         rules: [
             {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    {
+                        loader: "sass-loader"
+                    }
+                ]
+            },
+            {
                 test: /\.less$/,
                 exclude: /node_modules/,
                 use: [
