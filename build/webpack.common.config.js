@@ -14,8 +14,8 @@ dirs.forEach(dir => {
     let htmlWebpackPluginItem = new HtmlWebpackPlugin({
         filename: `${dir}.html`, // 默认值： 'index.html'
         template: path.resolve(__dirname, "../src/index.html"),
-        title: "Webpack", // 默认值：Webpack App
-        chunks: ["manifest", dir],
+        title: "五好导学-欢迎您的使用!", // 默认值：Webpack App
+        chunks: ["manifest", dir, "vendor", "common"],
         minify: {
             collapseWhitespace: true,
             removeComments: true,
@@ -149,17 +149,20 @@ module.exports = {
             maxInitialRequests: Infinity,
             minSize: 0,
             cacheGroups: {
+                //打包node_modules中的文件
                 vendor: {
                     test: /[\\/]node_modules[\\/]/,
                     name: "vendor",
-                    priority: -10
+                    chunks: "all",
+                    priority: 10
                 },
-                custom: {
-                    minSize: 0,
-                    priority: -20,
-                    name: "custom",
-                    reuseExistingChunk: true
-                }
+                // 打包业务中的公共代码
+                common: {
+                    name: "common",
+                    chunks: "all",
+                    minSize: 1,
+                    priority: 0
+                },
             }
         },
         runtimeChunk: {
