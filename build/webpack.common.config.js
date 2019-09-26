@@ -3,12 +3,30 @@ const webpack = require("webpack");
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const Happypack = require("happypack");
+const fs = require("fs");
+
+const EntryPointsPath = path.resolve(__dirname, "../src/pages");
+let dirs = fs.readdirSync(EntryPointsPath);
+let entry = {};
+let htmlWebpackPlugins = [];
+dirs.forEach(dir => {
+    entry[dir] = path.join(__dirname, "..", "src", "pages", dir, "index.js");
+    let htmlWebpackPluginItem = new HtmlWebpackPlugin({
+        filename: `${dir}.html`, // 默认值： 'index.html'
+        template: path.resolve(__dirname, "../src/index.html"),
+        title: "Webpack", // 默认值：Webpack App
+        chunks: ["manifest", dir],
+        minify: {
+            collapseWhitespace: true,
+            removeComments: true,
+            removeAttributeQuotes: true // 移除属性的引号
+        }
+    });
+    htmlWebpackPlugins.push(htmlWebpackPluginItem);
+});
 
 module.exports = {
-    entry: {
-        "page1": "./src/pages/page1/index.js",
-        "page2": "./src/pages/page2/index.js",
-    },
+    entry,
     module: {
         noParse: /lodash/,
         rules: [
@@ -99,28 +117,29 @@ module.exports = {
             manifest: path.resolve(__dirname, "../dist/dll", "manifest.json")
         }),
         new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            filename: "html/page1.html", // 默认值： 'index.html'
-            template: path.resolve(__dirname, "../src/index.html"),
-            title: "Webpack", // 默认值：Webpack App
-            chunks: ["manifest", "page1"],
-            minify: {
-                collapseWhitespace: true,
-                removeComments: true,
-                removeAttributeQuotes: true // 移除属性的引号
-            }
-        }),
-        new HtmlWebpackPlugin({
-            filename: "html/page2.html", // 默认值： 'index.html'
-            template: path.resolve(__dirname, "../src/index.html"),
-            title: "Webpack", // 默认值：Webpack App
-            chunks: ["manifest", "page2"],
-            minify: {
-                collapseWhitespace: true,
-                removeComments: true,
-                removeAttributeQuotes: true // 移除属性的引号
-            }
-        }),
+        ...htmlWebpackPlugins,
+        // new HtmlWebpackPlugin({
+        //     filename: "html/page1.html", // 默认值： 'index.html'
+        //     template: path.resolve(__dirname, "../src/index.html"),
+        //     title: "Webpack", // 默认值：Webpack App
+        //     chunks: ["manifest", "page1"],
+        //     minify: {
+        //         collapseWhitespace: true,
+        //         removeComments: true,
+        //         removeAttributeQuotes: true // 移除属性的引号
+        //     }
+        // }),
+        // new HtmlWebpackPlugin({
+        //     filename: "html/page2.html", // 默认值： 'index.html'
+        //     template: path.resolve(__dirname, "../src/index.html"),
+        //     title: "Webpack", // 默认值：Webpack App
+        //     chunks: ["manifest", "page2"],
+        //     minify: {
+        //         collapseWhitespace: true,
+        //         removeComments: true,
+        //         removeAttributeQuotes: true // 移除属性的引号
+        //     }
+        // }),
         new webpack.ProvidePlugin({
             _: "lodash"
         }),

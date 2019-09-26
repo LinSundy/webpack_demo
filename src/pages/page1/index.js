@@ -1,3 +1,4 @@
+import "@/assert/less/reset.less";
 import Vue from "vue";
 import Page1 from "./index.vue";
 
