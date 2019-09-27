@@ -17,7 +17,7 @@
         name: "page2",
         computed: {
             aa() {
-                return _.join(["hello", "page2"], "~");
+                return _.join(["hello", "page22"], "~");
             }
         },
         components: {

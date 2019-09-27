@@ -11,7 +11,7 @@
         <div class="box">11111</div>
         <i class="arrow"></i>
         <div :class="styles.content">
-            <span>大家好,还少一个配置文件2</span>
+            <span>大家好,还少一个配置文件1</span>
         </div>
         <div :class="a.demo">测试a.less</div>
         <el-button type="primary">demo</el-button>
