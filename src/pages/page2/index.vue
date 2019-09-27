@@ -5,14 +5,21 @@
         <div>
             VueDraggableResizable 2
         </div>
+        <div>{{aa}}</div>
     </div>
 </template>
 
 <script>
     import Hello from "@/components/hello.vue";
+    import _ from "lodash";
 
     export default {
         name: "page2",
+        computed: {
+            aa() {
+                return _.join(["hello", "page2"], "~");
+            }
+        },
         components: {
             Hello
         }

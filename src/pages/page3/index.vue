@@ -10,14 +10,21 @@
         <div @click="stop">
             暂停
         </div>
+        <div>{{aa}}</div>
     </div>
 </template>
 
 <script>
     import Audio from "@/utils/audio";
+    import _ from "lodash";
 
     export default {
         name: "page3",
+        computed: {
+            aa() {
+                return _.join(["hello", "page3"], "-");
+            }
+        },
         methods: {
             play(url) {
                 Audio.play(url);

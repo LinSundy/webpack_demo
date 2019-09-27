@@ -9,6 +9,7 @@ const EntryPointsPath = path.resolve(__dirname, "../src/pages");
 let dirs = fs.readdirSync(EntryPointsPath);
 let entry = {};
 let htmlWebpackPlugins = [];
+
 dirs.forEach(dir => {
     entry[dir] = path.join(__dirname, "..", "src", "pages", dir, "index.js");
     let htmlWebpackPluginItem = new HtmlWebpackPlugin({
@@ -22,6 +23,10 @@ dirs.forEach(dir => {
             removeAttributeQuotes: true // 移除属性的引号
         }
     });
+
+    if (process.env.NODE_ENV === "production") {
+        htmlWebpackPluginItem.options.mode = "production";
+    }
     htmlWebpackPlugins.push(htmlWebpackPluginItem);
 });
 
@@ -92,7 +97,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: [".js", ".json", ".css"], // 可忽略此后缀的文件后缀
+        extensions: [".vue", ".js", ".json", ".css"], // 可忽略此后缀的文件后缀
         alias: {
             "@": path.resolve(__dirname, "../src")
         }
@@ -113,14 +118,12 @@ module.exports = {
                 }
             ]
         }),
-        new webpack.DllReferencePlugin({
-            manifest: path.resolve(__dirname, "../dist/dll", "manifest.json")
-        }),
+        // 解析vue使用到的插件
         new VueLoaderPlugin(),
         ...htmlWebpackPlugins,
-        new webpack.ProvidePlugin({
-            _: "lodash"
-        }),
+        // new webpack.ProvidePlugin({
+        //     _: "lodash"
+        // }),
     ],
     optimization: {
         splitChunks: {
@@ -132,6 +135,7 @@ module.exports = {
                     test: /[\\/]node_modules[\\/]/,
                     name: "vendor",
                     chunks: "all",
+                    minChunks: 2,
                     priority: 10
                 },
                 // 打包业务中的公共代码
@@ -139,6 +143,7 @@ module.exports = {
                     name: "common",
                     chunks: "all",
                     minSize: 1,
+                    minChunks: 2,
                     priority: 0
                 },
             }

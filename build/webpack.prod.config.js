@@ -5,6 +5,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const merge = require("webpack-merge");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const path = require("path");
+const webpack = require("webpack");
 
 let prodConfig = {
     mode: "production",
@@ -90,6 +91,9 @@ let prodConfig = {
         ]
     },
     plugins: [
+        new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname, "../dist/dll", "manifest.json")
+        }),
         new CleanWebpackPlugin({
             verbose: true,
             cleanOnceBeforeBuildPatterns: ["css\/*", "fonts\/*", "images\/*", "*.html", "js\/*"]
