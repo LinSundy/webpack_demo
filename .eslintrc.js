@@ -15,6 +15,8 @@ module.exports = {
         "_": true
     },
     rules: {
+        "space-before-function-paren": ["error", "never"],
+        "padded-blocks": ["error", "never"],
         "object-curly-spacing": ["error", "never"],
         "indent": ["error", 4],
         // allow async-await
