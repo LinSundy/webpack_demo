@@ -61,6 +61,7 @@
     "echarts": "^4.3.0",
     "element-ui": "^2.12.0",
     "lodash": "^4.17.15",
+    "package.json": "^2.0.1",
     "v-charts": "^1.19.0"
   }
 }

@@ -1,20 +1,23 @@
 module.exports = {
     root: true,
     parserOptions: {
-        parser: "babel-eslint"
+        parser: "babel-eslint",
+        "ecmaVersion": 7,
+        "sourceType": "module"
     },
     env: {
         browser: true
     },
     extends: [
         // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-        "standard"
+        "eslint:recommended"
     ],
     globals: {
         NODE_ENV: false,
         "_": true
     },
     rules: {
+        "parser": 0,
         "space-before-function-paren": ["error", "never"],
         "padded-blocks": ["error", "never"],
         "object-curly-spacing": ["error", "never"],
