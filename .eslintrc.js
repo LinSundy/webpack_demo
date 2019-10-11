@@ -2,7 +2,7 @@ module.exports = {
     root: true,
     parserOptions: {
         parser: "babel-eslint",
-        "ecmaVersion": 7,
+        "ecmaVersion": 2017,
         "sourceType": "module"
     },
     env: {
@@ -10,14 +10,13 @@ module.exports = {
     },
     extends: [
         // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-        "eslint:recommended"
+        "standard"
     ],
     globals: {
         NODE_ENV: false,
         "_": true
     },
     rules: {
-        "parser": 0,
         "space-before-function-paren": ["error", "never"],
         "padded-blocks": ["error", "never"],
         "object-curly-spacing": ["error", "never"],
