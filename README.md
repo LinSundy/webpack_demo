@@ -66,3 +66,19 @@ element主题生成工具 如果不需要自定义主题的话，可以删除不
 - 当前dll打包只打vue， 多页面中暂时只有vue是公用的
 
 -- 通过bootcdn的引用方式，不同页面可以引用不同的包
+
+## 项目支持ts写法
+必要的依赖：
+- ts-loader
+- typescript
+
+> 创建 `tsconfig.json` 文件 `tsc --init`
+
+可选
+- vue-class-component 官方维护的
+- vue-property-decorator 非官方维护
+- vuex-class
+- vuex-ts-decorators/vuex-typescript等：非官方维护，学习成本极高
+
+## ES-lint 与 vscode结合使用
+vscode 需安装 `eslint`

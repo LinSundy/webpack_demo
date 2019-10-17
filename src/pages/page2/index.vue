@@ -9,11 +9,13 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
     import Hello from "@/components/hello.vue";
-    import _ from "lodash";
+    import Vue from 'vue';
 
-    export default {
+    const _ = require('lodash');
+
+    export default Vue.extend({
         name: "page2",
         computed: {
             aa() {
@@ -23,5 +25,5 @@
         components: {
             Hello
         }
-    };
+    });
 </script>
