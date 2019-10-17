@@ -47,38 +47,46 @@
 - element-theme-chalk
 element主题生成工具 如果不需要自定义主题的话，可以删除不安装
 
-> 此安装包可以只在开发环境中使用，最终编译生成对应的css文件
+> 此安装包可以只在开发环境中使用，最终编译生成对应的css文件、
+
 - 执行命令在 node_module/.bin/et
 - 初始化变量(scss类型) `node_module/.bin/et -i [文件名.scss]` 
 - 编译时，要指定自定义文件名 需要命令行加 -c
 
 ## src文件夹及文件说明
+
 - pages 为多页面入口文件夹
 - components 不同模块中公共的组件
 - assert 所有模块存放的静态资源
 - index.html  template的基础模板
 
 ## 多种主题色定制的element
+
 使用scss来处理
 
 ## Dll方式使用
+
 - 目前是只使用dll在生产环境
 - 当前dll打包只打vue， 多页面中暂时只有vue是公用的
 
 -- 通过bootcdn的引用方式，不同页面可以引用不同的包
 
 ## 项目支持ts写法
+
 必要的依赖：
+
 - ts-loader
 - typescript
 
 > 创建 `tsconfig.json` 文件 `tsc --init`
 
 可选
+
 - vue-class-component 官方维护的
 - vue-property-decorator 非官方维护
 - vuex-class
 - vuex-ts-decorators/vuex-typescript等：非官方维护，学习成本极高
 
 ## ES-lint 与 vscode结合使用
+
 vscode 需安装 `eslint`
