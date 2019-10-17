@@ -1,13 +1,9 @@
 <template>
-    <div>Hello1</div>
+  <div>Hello1</div>
 </template>
 
 <script>
-    export default {
-        name: "hello"
-    };
+export default {
+  name: "hello"
+};
 </script>
-
-<style scoped>
-
-</style>

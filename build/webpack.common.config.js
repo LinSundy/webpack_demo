@@ -37,14 +37,23 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        use: [
+          {loader: "vue-loader"},
+          {loader: "eslint-loader", options: {fix: true}}
+        ]
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        loader: 'tslint-loader'
       },
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          appendTsSuffixTo: [/\.vue$/]
+          appendTsSuffixTo: [/\.vue$/],
         }
       },
       {
@@ -105,7 +114,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.vue', '.js', '.json', '.css'], // 可忽略此后缀的文件后缀
+    extensions: ['.vue', '.js', '.json', '.css', ".ts", "tsx"], // 可忽略此后缀的文件后缀
     alias: {
       '@': path.resolve(__dirname, '../src')
     }
