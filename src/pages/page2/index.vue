@@ -10,20 +10,20 @@
 </template>
 
 <script lang="ts">
-    import Hello from "@/components/hello.vue";
-    import Vue from 'vue';
+import Hello from "@/components/hello.vue";
+import Vue from 'vue';
 
-    const _ = require('lodash');
+const _ = require('lodash');
 
-    export default Vue.extend({
-        name: "page2",
-        computed: {
-            aa() {
-                return _.join(["hello", "page22"], "~");
-            }
-        },
-        components: {
-            Hello
-        }
-    });
+export default Vue.extend({
+  name: "page2",
+  computed: {
+    aa() {
+      return _.join(["hello", "page22"], "~");
+    }
+  },
+  components: {
+    Hello
+  }
+});
 </script>
