@@ -33,6 +33,51 @@
       {
         "SwitchCase": 2 // 针对switch case的缩进
       }
-    ]
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "no-empty": [
+      "error",
+      {
+        "allowEmptyCatch": true
+      }
+    ],
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-extra-semi": "error",
+    "no-empty-function": "error",
+    "array-bracket-spacing": [
+      2,
+      "always"
+    ],
+    "comma-spacing": [
+      2,
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "no-whitespace-before-property": "error",
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
+    "space-infix-ops": 2,
+    "arrow-spacing": [
+      2,
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "no-var": "error",
+    "semi": ["error", "never"]
   }
 }

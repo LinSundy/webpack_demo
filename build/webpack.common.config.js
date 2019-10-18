@@ -39,7 +39,7 @@ module.exports = {
         test: /\.vue$/,
         use: [
           {loader: "vue-loader"},
-          {loader: "eslint-loader", options: {fix: true}}
+          {loader: "eslint-loader", options: {fix: false}}
         ]
       },
       {
@@ -130,7 +130,7 @@ module.exports = {
           loader: 'eslint-loader',
           options: {
             // eslint options (if necessary)
-            fix: true,
+            fix: false,
             formatter: require('eslint-friendly-formatter')
           }
         }
