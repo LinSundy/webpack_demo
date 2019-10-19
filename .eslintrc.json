@@ -78,6 +78,7 @@
       }
     ],
     "no-var": "error",
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "no-useless-escape": 0
   }
 }

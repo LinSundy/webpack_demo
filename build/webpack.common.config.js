@@ -16,7 +16,7 @@ dirs.forEach(dir => {
     filename: `${dir}.html`, // 默认值： 'index.html'
     template: path.resolve(__dirname, '../src/index.html'),
     title: '五好导学-欢迎您的使用!', // 默认值：Webpack App
-    chunks: ['manifest', dir, 'vendor', 'common'],
+    chunks: [ 'manifest', dir, 'vendor', 'common' ],
     minify: {
       collapseWhitespace: true,
       removeComments: true,
@@ -53,7 +53,7 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          appendTsSuffixTo: [/\.vue$/],
+          appendTsSuffixTo: [ /\.vue$/ ],
         }
       },
       {
@@ -63,7 +63,7 @@ module.exports = {
             loader: 'url-loader', // 根据图片大小，把图片优化成base64
             options: {
               limit: 10000,
-              name () {
+              name() {
                 if (process.env.NODE_ENV === 'development') {
                   return '[path][name].[ext]'
                 }
@@ -114,7 +114,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.vue', '.js', '.json', '.css', ".ts", "tsx"], // 可忽略此后缀的文件后缀
+    extensions: [ '.vue', '.js', '.json', '.css', ".ts", "tsx" ], // 可忽略此后缀的文件后缀
     alias: {
       '@': path.resolve(__dirname, '../src')
     }
