@@ -138,3 +138,27 @@ vscode 需安装 `eslint`
     ```
 
     ***只有将.green样式定义为全局的样式才可以访问到***
+
+    使用css-module的的语法来实现
+
+    - html
+
+      ``` html
+        <template>
+          <div :class="styles.red">你好，世界</div>
+        </template>
+      ```
+
+    - js
+
+      ``` js
+        import styles from "./index.module.less"
+      ```
+
+    - css
+
+      ``` css
+        .red {
+          color: red;
+        }
+      ```
