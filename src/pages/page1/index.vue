@@ -21,14 +21,14 @@
 
 <script lang="ts">
 // import VeRadar from "v-charts/lib/radar.common";
-const VeRadar = require("v-charts/lib/radar.common");
+const VeRadar = require("v-charts/lib/radar.common")
 // import styles from "@/assert/less/index.module.less";
-const styles = require("@/assert/less/index.module.less");
+const styles = require("@/assert/less/index.module.less")
 // import a from "@/assert/less/a.less";
-const a = require("@/assert/less/a.less");
-import Hello from "@/components/hello.vue";
-import Component from "vue-class-component";
-import Vue from "vue";
+const a = require("@/assert/less/a.less")
+import Hello from "@/components/hello.vue"
+import Component from "vue-class-component"
+import Vue from "vue"
 
 @Component({
   name: "Page1",
@@ -98,7 +98,7 @@ export default class Page1 extends Vue {
   };
 
   add(arg1: number, arg2: number): number {
-    return arg1 + arg2;
+    return arg1 + arg2
   }
 }
 </script>

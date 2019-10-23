@@ -13,23 +13,23 @@
 </template>
 
 <script>
-import Audio from "@/utils/audio";
-import _ from "lodash";
+import Audio from "@/utils/audio"
+import _ from "lodash"
 
 export default {
   name: "page3",
   computed: {
     aa() {
-      return _.join(["hello", "page3"], "-");
+      return _.join([ "hello", "page3" ], "-")
     }
   },
   methods: {
     play(url) {
-      Audio.play(url);
+      Audio.play(url)
     },
     stop() {
-      Audio.pause();
+      Audio.pause()
     }
   }
-};
+}
 </script>
