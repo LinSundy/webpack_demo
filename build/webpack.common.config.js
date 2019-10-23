@@ -6,7 +6,8 @@ const Happypack = require('happypack')
 const fs = require('fs')
 
 const EntryPointsPath = path.resolve(__dirname, '../src/pages')
-const dirs = fs.readdirSync(EntryPointsPath)
+let dirs = fs.readdirSync(EntryPointsPath)
+dirs = [ "page1" ]
 const entry = {}
 const htmlWebpackPlugins = []
 

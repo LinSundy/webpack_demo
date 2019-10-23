@@ -68,7 +68,8 @@ let prodConfig = {
             loader: "style-resources-loader",
             options: {
               patterns: [
-                path.resolve(__dirname, "../src/assert/less/base.less")
+                path.resolve(__dirname, "../src/assert/less/base.less"),
+                path.resolve(__dirname, "../src/assert/less/variable.less")
               ]
             }
           }

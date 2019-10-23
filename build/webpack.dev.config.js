@@ -20,7 +20,7 @@ let devConfig = {
     openPage: "main.html",
     progress: true,
     overlay: {  // 出现错误或者警告的时候，是否覆盖页面线上错误消息。
-      warnings: true,
+      warnings: false,
       errors: true
     },
     watchOptions: { // 监视文件相关的控制选项
@@ -83,7 +83,8 @@ let devConfig = {
             loader: "style-resources-loader",
             options: {
               patterns: [
-                path.resolve(__dirname, "../src/assert/less/base.less")
+                path.resolve(__dirname, "../src/assert/less/base.less"),
+                path.resolve(__dirname, "../src/assert/less/variable.less"),
               ]
             }
           }
