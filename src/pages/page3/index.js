@@ -1,3 +1,4 @@
+import "@/common/multipleCommonConfig.js"
 import Vue from "vue"
 import Page3 from "./index.vue"
 

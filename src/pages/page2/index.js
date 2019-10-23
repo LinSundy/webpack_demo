@@ -1,3 +1,4 @@
+import "@/common/multipleCommonConfig.js"
 import Vue from "vue"
 import Page2 from "./index.vue"
 const page2 = new Vue({

@@ -7,7 +7,7 @@ const fs = require('fs')
 
 const EntryPointsPath = path.resolve(__dirname, '../src/pages')
 let dirs = fs.readdirSync(EntryPointsPath)
-dirs = [ "page1" ]
+dirs = [ "page2" ]
 const entry = {}
 const htmlWebpackPlugins = []
 
