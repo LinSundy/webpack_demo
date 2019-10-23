@@ -111,3 +111,30 @@ vscode 需安装 `eslint`
 
   1. 将console.log修改为warn级别
   2. 修改devServer里当为警告时，不覆盖在页面上，只在控制台提示
+
+## 注意事项
+
+### style内置样式
+
+1. 目前只支持以module的形式去写单页面的样式,例如:
+
+    ``` html
+      <template>
+        <div :class="$style.red">您好</div>
+      </template>
+      <style lang="less" module>
+      .red {
+        color: red;
+      }
+      </style>
+    ```
+
+    用普通的class样式
+
+    ``` html
+    <template>
+      <div class="green">你好, 世界</div>
+    </template>
+    ```
+
+    ***只有将.green样式定义为全局的样式才可以访问到***

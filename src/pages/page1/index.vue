@@ -8,12 +8,12 @@
       :legend-visible="false"
       :data="chartData"
     ></ve-radar>
-    <div class="box">11111</div>
+    <div class="red">2222</div>
     <i class="arrow"></i>
     <div :class="styles.content">
       <span>大家好,还少一个配置文件1</span>
     </div>
-    <div :class="a.demo">测试a.less</div>
+    <div>测试a.less</div>
     <div>{{this.add(1, 2)}}</div>
     <el-button type="primary">demo</el-button>
   </div>
@@ -25,7 +25,6 @@ const VeRadar = require("v-charts/lib/radar.common")
 // import styles from "@/assert/less/index.module.less";
 const styles = require("@/assert/less/index.module.less")
 // import a from "@/assert/less/a.less";
-const a = require("@/assert/less/a.less")
 import Hello from "@/components/hello.vue"
 import Component from "vue-class-component"
 import Vue from "vue"
@@ -39,7 +38,6 @@ import Vue from "vue"
 })
 export default class Page1 extends Vue {
   styles = styles;
-  a = a;
   settings = {
     lineStyle: {
       color: "#63D3FF",
@@ -102,3 +100,8 @@ export default class Page1 extends Vue {
   }
 }
 </script>
+<style lang="less">
+  .red {
+    color: red;
+  }
+</style>

@@ -1,9 +1,9 @@
 <template>
   <div>
     <Hello></Hello>
-    <h3>可以拖拽并且改变大小的弹出框</h3>
+    <h3 class="font">可以拖拽并且改变大小的弹出框</h3>
     <div>VueDraggableResizable 2</div>
-        <div>{{aa}}</div>
+        <div class="font">{{aa}}</div>
   </div>
 </template>
 
@@ -25,3 +25,9 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="less" scoped>
+.font {
+  color: burlywood
+}
+</style>
